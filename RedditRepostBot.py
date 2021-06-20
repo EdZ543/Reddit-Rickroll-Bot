@@ -5,14 +5,13 @@ import decimal
 import time
 import os
 
-#redacted some private info, obviously
-reddit = praw.Reddit(client_id = '**********',
-                    client_secret = '*************',       
-                    username = 'Not_RepostSleuthBot',
-                    password = '********',
-                    user_agent = 'Not_RepostSleuthBot')
+reddit = praw.Reddit(client_id = os.getenv('client_id'),
+                    client_secret = os.getenv('client_secret'),
+                    username = os.getenv('username'),
+                    password = os.getenv('password'),
+                    user_agent = os.getenv('user_agent'))
 
-subreddit = reddit.subreddit('pewdiepiesubmissions')
+subreddit = reddit.subreddit('all')
 
 keyphrase = 'u/repostsleuthbot'
 
@@ -42,8 +41,7 @@ for comment in subreddit.stream.comments():
             replied_users.append(comment.author.name)
             with open('replied_users.txt', 'w') as f:
                 f.write(comment.author.name + '\n')
-            print('replied to', comment.author.name)
+            print('replied to', comment.author.name, 'in r/', comment.subreddit)
         except:
-            print('darno')
-        
-        time.sleep(600)
+            print('couldn\'t reply in r/', str(comment.subreddit))
+            time.sleep(600)
