@@ -11,7 +11,7 @@ reddit = praw.Reddit(client_id = os.getenv('client_id'),
                     password = os.getenv('password'),
                     user_agent = os.getenv('user_agent'))
 
-subreddit = reddit.subreddit('all')
+subreddit = reddit.subreddit('all+popular')
 
 keyphrase = 'u/repostsleuthbot'
 
