@@ -41,7 +41,7 @@ for comment in subreddit.stream.comments():
             replied_users.append(comment.author.name)
             with open('replied_users.txt', 'w') as f:
                 f.write(comment.author.name + '\n')
-            print('replied to', comment.author.name, 'in r/', comment.subreddit)
+            print(f'replied to {comment.author.name} in r/{comment.subreddit}')
         except:
-            print('couldn\'t reply in r/', str(comment.subreddit))
+            print(f'couldn\'t reply in r/{comment.subreddit}')
             time.sleep(600)
