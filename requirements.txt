@@ -105,7 +105,7 @@ toml==0.10.2
 tomlkit==0.7.2
 tqdm==4.62.2
 typing-extensions==3.7.4.3
-ujson==1.35
+ujson==5.4.0
 urllib3==1.26.6
 virtualenv==20.7.2
 webencodings==0.5.1
